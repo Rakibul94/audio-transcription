@@ -20,7 +20,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     app = FastAPI(title=settings.app_name)
 
     provider = create_transcription_provider(settings)
-    service = TranscriptionService(provider, settings)
+    service = TranscriptionService(provider)
     app.include_router(create_router(service, settings))
 
     @app.get("/healthz")

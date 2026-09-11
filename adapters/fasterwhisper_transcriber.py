@@ -43,8 +43,8 @@ class FasterWhisperProvider(TranscriptionProvider):
         initial_prompt: str | None = None,
         _model: Any = None,
     ) -> None:
-        """_model is the test seam: inject a fake and the SDK is never
-        touched. Production callers omit it and get the real load."""
+        self._beam_size = beam_size         
+        self._initial_prompt = initial_prompt
         if _model is not None:
             self._model = _model
             return
@@ -87,7 +87,7 @@ class FasterWhisperProvider(TranscriptionProvider):
                     if self._initial_prompt and lang_param in (None, "bn")
                     else None
                 )
-            ),
+            )
             # segment_iter is a generator: iteration is where the CPU
             # work actually happens, so the decode errors surface HERE.
             segments = tuple(
