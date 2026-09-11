@@ -1,0 +1,11 @@
+
+{
+  "clips": [
+    {"file": "bangla_alien_podcast.m4a", "language": "bn",
+     "reference": "<FILL IN: what is actually said>",
+     "source": "podcast clip <name/episode>", "license": "<state it>"},
+    {"file": "en_check_01.wav", "language": "en",
+     "reference": "<ADD TOGETHER WITH THE FILE>",
+     "source": "self-recorded", "license": "mine"}
+  ]
+}
