@@ -1,0 +1,9 @@
+{
+  "transcript": "The total comes to twenty five dollars and seventy cents.",
+  "language": "en",
+  "duration_seconds": 4.8,
+  "no_speech": false,
+   "segments": [
+    {"text": " The total comes to twenty five dollars and seventy cents.", "no_speech_prob": 0.05, "avg_logprob": -0.4}
+  ]
+}

@@ -1,0 +1,10 @@
+
+{
+  "transcript": "Thank you.",
+  "language": "en",
+  "duration_seconds": 4.0,
+  "no_speech": false,
+  "segments": [
+    {"text": " Thank you.", "no_speech_prob": 0.93, "avg_logprob": -1.8}
+  ]
+}

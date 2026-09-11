@@ -1,0 +1,11 @@
+
+
+{
+  "transcript": "বিলটা পঁচিশ টাকা হলো। আগামীকাল দুপুরে ব্যাংকে যাব।",
+  "language": "bn",
+  "duration_seconds": 6.4,
+  "no_speech": false,
+  "segments": [
+    {"text": " বিলটা পঁচিশ টাকা হলো। আগামীকাল দুপুরে ব্যাংকে যাব।", "no_speech_prob": 0.04, "avg_logprob": -0.35}
+  ]
+}
