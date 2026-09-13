@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from services.transcription_port import Segment
 
-
 NO_SPEECH_PROB_THRESHOLD = 0.90   
 AVG_LOGPROB_THRESHOLD = -1.50    
 AVG_LOGPROB_HARD_FLOOR = -2.50   

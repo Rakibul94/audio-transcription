@@ -24,6 +24,7 @@ def test_services_import_no_fastapi():
 
 
 def test_no_sdk_outside_adapters():
-    files = [*py_files("api"), *py_files("services"), (Path(__file__).resolve().parent.parent / "main.py")]
+    root = Path(__file__).resolve().parent.parent
+    files = [*py_files("api"), *py_files("services"), root / "main.py"]
     offenders = {f.name: imports_of(f) & SDKS for f in files}
     assert not any(offenders.values()), offenders

@@ -6,8 +6,9 @@ import os
 
 os.environ["ASR_PROVIDER"] = "mock"
 
-from fastapi.testclient import TestClient
 import pytest
+from fastapi.testclient import TestClient
+
 from main import create_app
 from services.config import Settings
 

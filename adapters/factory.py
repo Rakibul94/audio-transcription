@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-
 from adapters.mock_transcriber import MockTranscriptionProvider
 from services.config import Settings
 from services.transcription_port import TranscriptionProvider

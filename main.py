@@ -11,7 +11,6 @@ from api.routes import create_router
 from services.config import Settings, get_settings
 from services.transcription_service import TranscriptionService
 
-
 logging.basicConfig(level=logging.INFO)
 
 
@@ -23,7 +22,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     service = TranscriptionService(provider)
     app.include_router(create_router(service, settings))
 
-    @app.get("/healthz")
+    @app.get("/health")
     def healthz() -> dict[str, str]:
         return {"status": "ok", "provider": settings.provider}
 

@@ -10,7 +10,6 @@ import pytest
 from adapters.mock_transcriber import MockTranscriptionProvider
 from services.transcription_port import TranscriptionPermanentError
 
-
 REPO = Path(__file__).resolve().parent.parent 
 
 
@@ -19,7 +18,9 @@ def make_provider(**overrides: object) -> MockTranscriptionProvider:
 
 
 def test_selects_recording_by_stem() -> None:
-    result = make_provider().transcribe(b"ignored bytes", language="auto", filename="bn_bill_01.wav")
+    result = make_provider().transcribe(
+        b"ignored bytes", language="auto", filename="bn_bill_01.wav"
+    )
     assert result.language == "bn"
     assert result.transcript.startswith("বিলটা")
     assert result.provider == "mock"
@@ -34,9 +35,10 @@ def test_unknown_stem_falls_back_to_silence() -> None:
 
 
 def test_stem_ignores_directory_parts() -> None:
-    result = make_provider().transcribe(b"", language="auto", filename="/tmp/uploads/en_check_01.webm")
+    result = make_provider().transcribe(
+        b"", language="auto", filename="/tmp/uploads/en_check_01.webm"
+    )
     assert result.language == "en"
-
 
 def test_malformed_recording_raises_permanent(tmp_path: Path) -> None:
     (tmp_path / "broken.json").write_text("{ not json", encoding="utf-8")

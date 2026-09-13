@@ -4,17 +4,16 @@ from __future__ import annotations
 
 import logging
 
-from fastapi import APIRouter, File, Form, UploadFile, HTTPException
+from fastapi import APIRouter, File, Form, HTTPException, UploadFile
 from fastapi.concurrency import run_in_threadpool
-from pydantic import BaseModel
+
+from api.schemas import TranscriptionResponse
+from services.audio_format import sniff_audio_format
+from services.config import Settings
 from services.transcription_port import (
     TranscriptionPermanentError,
     TranscriptionTemporaryError,
 )
-from services.audio_format import sniff_audio_format
-from services.config import Settings
-from api.schemas import TranscriptionResponse
-
 from services.transcription_service import TranscriptionService
 
 logger = logging.getLogger(__name__)
