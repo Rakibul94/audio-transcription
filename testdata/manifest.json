@@ -2,10 +2,7 @@
 {
   "clips": [
     {"file": "bangla_alien_podcast.m4a", "language": "bn",
-     "reference": "<FILL IN: what is actually said>",
-     "source": "podcast clip <name/episode>", "license": "<state it>"},
-    {"file": "en_check_01.wav", "language": "en",
-     "reference": "<ADD TOGETHER WITH THE FILE>",
-     "source": "self-recorded", "license": "mine"}
+     "reference": "ইন্টারনেটে দেখি। একটা কিছু ঘটতে চলেছে। প্রশ্ন আসে তাহলে পৃথিবীতে প্রাণ কেন? অন্য কোথাও নয় কেন? পৃথিবীতে প্রাণ সৃষ্টি হয়েছে,বিবর্তন হয়েছে, সম্ভব হচ্ছে কয়েকটা আকস্মিক ঘটে যাওয়া accident এর উপরে। মঙ্গলের বর্তমান natural situation দেখি। ওখানে কি মানুষের বসবাসযোগ্য পরিবেশ আছে?"
+  }
   ]
 }
