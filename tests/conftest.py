@@ -2,6 +2,10 @@
 
 from __future__ import annotations
 
+import os
+
+os.environ["ASR_PROVIDER"] = "mock"
+
 from fastapi.testclient import TestClient
 import pytest
 from main import create_app

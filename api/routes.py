@@ -77,6 +77,7 @@ def create_router(service: TranscriptionService, settings: Settings) -> APIRoute
             no_speech=result.no_speech,
             provider=result.provider,
             format=fmt,
+            warnings=warnings,
         )
 
     return router

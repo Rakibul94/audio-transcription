@@ -90,3 +90,14 @@ def test_hallucinated_text_is_wiped_by_policy() -> None:
     body = response.json()
     assert body["no_speech"] is True
     assert body["transcript"] == ""
+
+
+def test_no_speech_result_carries_warning() -> None:
+    body = post(build_client(), "never_recorded_this.wav", FAKE_WAV).json()
+    assert any("No speech" in w for w in body["warnings"])
+
+
+def test_language_mismatch_adds_warning() -> None:
+    # Request bn, recording is en: the mock never rewrites history.
+    body = post(build_client(), "en_check_01.mp3", FAKE_MP3, language="bn").json()
+    assert any("differs" in w for w in body["warnings"])
