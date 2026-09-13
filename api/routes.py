@@ -25,12 +25,7 @@ CHUNK_SIZE = 1024 * 1024  # 1 MiB: large enough to be fast, small enough to abor
 
 def create_router(service: TranscriptionService, settings: Settings) -> APIRouter:
 
-    """Build the transcription routes.
 
-    Dependencies are injected, never imported: tests pass a mock-backed
-    service and shrunken settings (tiny upload caps, restricted
-    languages) through this same factory.
-    """
 
     router = APIRouter(prefix="/api/v1", tags=["transcription"])
 
@@ -48,9 +43,6 @@ def create_router(service: TranscriptionService, settings: Settings) -> APIRoute
              buf += chunk
              if len(buf) > settings.max_upload_bytes:
                  raise HTTPException(413, "audio exceeds the upload limit")
-
-        # 3. Sniff: magic bytes decide; the extension gets no vote.
-        #    An empty file also lands here — no bytes, no magic, no format.
         fmt = sniff_audio_format(bytes(buf))
         if fmt is None:
             raise HTTPException(415, "could not determine audio format from file content")

@@ -7,10 +7,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    """Typed configuration. Every knob is an env var with the ASR_ prefix
-    (e.g. ASR_PROVIDER=fasterwhisper). The defaults describe the zero-
-    credential, zero-download mock path — exactly what docker compose
-    boots with no .env present."""
+    
 
     model_config = SettingsConfigDict(env_prefix="ASR_", env_file=".env", extra="ignore")
 
@@ -27,7 +24,7 @@ class Settings(BaseSettings):
     allowed_formats: set[str] = {"wav", "mp3", "ogg", "flac", "m4a", "webm"}
 
     # --- faster-whisper knobs (read only when provider=fasterwhisper) ---
-    whisper_model: str = "medium"
+    whisper_model: str = "large-v3-turbo"
     whisper_compute_type: str = "int8"
     whisper_cpu_threads: int = 4
     whisper_beam_size: int = 5

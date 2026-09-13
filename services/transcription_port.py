@@ -23,10 +23,7 @@ class TranscriptionPermanentError(TranscriptionProviderError):
 
 @dataclass(frozen=True)
 class Segment:
-    """One decoded speech segment, carrying only the confidence signals the
-    no-speech policy needs (services/) — SDK types never cross this boundary.
-    Whisper's no_speech_prob / avg_logprob land here as plain floats.
-    """
+   
 
     text: str
     no_speech_prob: float

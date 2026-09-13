@@ -18,23 +18,10 @@ logger = logging.getLogger(__name__)
 
 
 class FasterWhisperProvider(TranscriptionProvider):
-    """Real ASR: faster-whisper (CTranslate2) on CPU, int8.
-
-    faster_whisper is imported INSIDE __init__ — importing this module
-    must never require the SDK, so a mock-only install keeps working and
-    the layering test stays honest (DECISIONS.md #1).
-
-    CPU levers, each documented in DECISIONS.md:
-    - compute_type="int8": ~3x faster than float32 on CPU, negligible
-      accuracy loss — the standard CPU deployment trick.
-    - beam_size=1: greedy decoding; the biggest cheap CPU saving.
-    - vad_filter=True: Silero VAD (bundled) skips silence — and doubles
-      as the no-speech detector: zero surviving segments == no speech.
-    """
 
     def __init__(
         self,
-        model_size: str = "medium",
+        model_size: str = "large-v3-turbo",
         cpu_threads: int = 4,
         compute_type: str = "int8",
         model_dir: str | Path | None = None,

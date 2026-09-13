@@ -17,17 +17,6 @@ logger = logging.getLogger(__name__)
 
 
 class MockTranscriptionProvider(TranscriptionProvider):
-    """Replays recorded provider responses: zero network, zero model load.
-
-    Recording selection: if "<stem>.json" matches the uploaded filename,
-    play that recording; otherwise degrade to the default (silence). The
-    uploaded bytes are never decoded — the filename is the scenario
-    switch used by demos and tests.
-
-    The language hint is ignored: a recording is recorded truth, and a
-    hint does not rewrite history. Callers learn the real language from
-    the result.
-    """
 
     def __init__(
         self, recordings_dir: str | Path, default_recording: str = "silence.json"
