@@ -1,0 +1,10 @@
+
+
+.git
+__pycache__
+*.egg-info
+build/
+.env
+recordings/
+testdata/
+tests/
